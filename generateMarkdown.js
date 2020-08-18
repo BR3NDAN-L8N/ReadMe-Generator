@@ -4,7 +4,7 @@ function generateMarkdown(data) {
   <!-- PROJECT TITLE -->
   <br />
   <p align="center">
-    <h1 align="center">${data.title}</h1>
+    <h1 align="center">${data.github}</h1>
   </p>
   
   
