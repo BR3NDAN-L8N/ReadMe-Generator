@@ -13,10 +13,13 @@ function generateMarkdown(data) {
   # Table of Contents
   
   * [About the Project](#about-the-project)
-      * [Finished Project Link](#finished-project)
-      * [Project Screenshot](#project-screenshot)
-      * [Assignment](#assignment)
-  * [Contact](#contact)
+      * [Live Link](#finished-project)
+      * [Project Demo](#project-demo)
+      * [Usage](#usage)
+      * [License](#license)
+      * [Contribution Instructions](#contributions)
+      * [Test Instructions](#testing)
+  * [Contact / Questions](#contact)
   * [Acknowledgements](#acknowledgements)
   
   
@@ -28,23 +31,32 @@ function generateMarkdown(data) {
   
   [Deployed Project](${data.liveLink})
   
-  ## Project ${data.projectVisualType}
+  ## Project Demo
   
-  ${data.projectVisualLinkPath}
+  ${data.projectDemoLinkPath}
+
+  ## Usage
+
+  ${data.usage}
+
+  ## License
+
+  ${data.license}
+
+  ## Contributions
+
+  ${data.contribution}
+
+  ## Testing
   
-  ## Assignment
-  
-  ### ${data.assignmentName}
-  
-  ${data.assignmentDescription}
-  
-  
-  
+  ${data.testing}
+
   <!-- CONTACT -->
   # Contact
   
-  * [Email](BR3NDAN.L8N@gmail.com)
-  * [LinkedIn](https://www.linkedin.com/in/brendan-leighton-ab5944113/)
+  * [Email](${data.email})
+  * [GitHub](${data.github})
+  * [LinkedIn](${data.linkedIn})
   
   
   
