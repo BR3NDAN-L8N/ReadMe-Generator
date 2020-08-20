@@ -1,8 +1,15 @@
 const inquirer = require("inquirer");
 const axios = require("axios");
 const generateMarkdown = require("./generateMarkdown.js");
+const fs = require("fs");
 // array of questions for user
 const questions = [{
+        type: "input",
+        message: "File path to save the file? Please include the name of the file",
+        name: "filePath",
+        default: "ReadMe.md",
+    },
+    {
         type: "input",
         message: "What is the project's name?",
         name: "projectName"
@@ -20,17 +27,13 @@ const questions = [{
     {
         type: "input",
         message: "Any instructions for installation?",
-        name: "installation"
+        name: "installation",
+        default: "There are no special instructions for installation."
     },
     {
         type: "input",
         message: "Instructions for usage?",
         name: "usage"
-    },
-    {
-        type: "input",
-        message: "Would you like to add media to demo the project?",
-        name: "demoMedia"
     },
     {
         type: "list",
@@ -60,37 +63,44 @@ const questions = [{
         type: "input",
         message: "What is your email?",
         name: "email"
-    }
+    },
+    {
+        type: "input",
+        message: "Would you like to enter a LinkedIn URL?",
+        name: "linkedIn"
+    },
+    {
+        type: "input",
+        message: "Would you like to enter any acknowledgements?",
+        name: "thanks"
+    },
 ];
 
 // function to write README file
-function writeToFile(data) {
+function writeToFile(response) {
+    fs.writeFile(response.filePath, generateMarkdown(response), function (err) {
+        return err ? console.log(err) : console.log("You should be all set!");
+    });
+}
+
+function getGithubURL(response) {
+    const queryUrl = `https://api.github.com/users/${response.github}/repos?per_page=100`;
+    axios.get(queryUrl).then(function (res) {
+        response.github = res.data[0].owner.html_url;
+        return response
+    })
+}
+
+function getLicenseData(response) {
 
 }
 
 // function to initialize program
 function init() {
     inquirer.prompt(questions)
-        .then(function (response) {
-            console.log(response.github);
-            const queryUrl = `https://api.github.com/users/${response.github}/repos?per_page=100`;
-
-            axios.get(queryUrl).then(function (res) {
-                    console.log(res.data[0].owner.avatar_url);
-                    response.img = res.data[0].owner.avatar_url;
-                    return response
-
-                })
-                .then(function (response) {
-                    fs.writeFile("ReadMe.md", generateMarkdown(response), function (err) {
-                        return err ? console.log(err) : console.log("Success!");
-                    });
-                    //then create template
-                    //then fs write file
-
-                });
-
-        });
+        .then(getLicenseData(response)
+            .then(getGithubURL(response)
+                .then(writeToFile(response))));
 }
 // function call to initialize program
 init();

@@ -4,7 +4,7 @@ function generateMarkdown(data) {
   <!-- PROJECT TITLE -->
   <br />
   <p align="center">
-    <h1 align="center">${data.github}</h1>
+    <h1 align="center">${data.projectName}</h1>
   </p>
   
   
@@ -27,32 +27,32 @@ function generateMarkdown(data) {
   <!-- ABOUT THE PROJECT -->
   # About The Project
   
-  ## Finished Project
+  ## Finished Project <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
   
-  [Deployed Project](${data.liveLink})
+  [Deployed Project](${data.deployedLink})
   
-  ## Project Demo
+  ## Project Demo <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
   
-  ${data.projectDemoLinkPath}
+  ${data.demoMedia}
 
-  ## Usage
+  ## Usage <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
 
   ${data.usage}
 
-  ## License
+  ## License <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
 
   ${data.license}
 
-  ## Contributions
+  ## Contributions <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
 
   ${data.contribution}
 
-  ## Testing
+  ## Testing <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
   
   ${data.testing}
 
   <!-- CONTACT -->
-  # Contact
+  # Contact <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
   
   * [Email](${data.email})
   * [GitHub](${data.github})
@@ -61,8 +61,8 @@ function generateMarkdown(data) {
   
   
   <!-- ACKNOWLEDGEMENTS -->
-  # Acknowledgements
-  ${data.acknowledgements}
+  # Acknowledgements <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  ${data.thanks}
   
   
 `;
