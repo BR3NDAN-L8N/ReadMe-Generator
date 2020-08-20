@@ -29,7 +29,8 @@ function generateMarkdown(data) {
   
   ## Finished Project <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
   
-  [Deployed Project](${data.deployedLink})
+  <!-- Add deployed link when available -->
+  [Deployed Project](http://www.example.com) 
   
   ## Project Demo <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
   
