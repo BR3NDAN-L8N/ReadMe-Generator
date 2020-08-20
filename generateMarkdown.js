@@ -41,8 +41,14 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ## License <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  
+  Begin license text.
+        
+        Copyright ${data.license.year} ${data.license.owner}
+        
+  ${data.license.licenseText}
 
-  ${data.license}
+  End license text.
 
   ## Contributions <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
 
