@@ -27,39 +27,38 @@ function generateMarkdown(data) {
   <!-- ABOUT THE PROJECT -->
   # About The Project
   
-  ## Finished Project <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  ## Finished Project
   
   <!-- Add deployed link when available -->
   [Deployed Project](http://www.example.com) 
   
-  ## Project Demo <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  ## Project Demo
   
   ${data.demoMedia}
 
-  ## Usage <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  ## Usage
 
   ${data.usage}
 
-  ## License <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  ## License
   
   Begin license text.
         
         Copyright ${data.license.year} ${data.license.owner}
-        
   ${data.license.licenseText}
 
   End license text.
 
-  ## Contributions <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  ## Contributions
 
   ${data.contribution}
 
-  ## Testing <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  ## Testing
   
   ${data.testing}
 
   <!-- CONTACT -->
-  # Contact <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  # Contact
   
   * [Email](${data.email})
   * [GitHub](${data.github})
@@ -68,7 +67,7 @@ function generateMarkdown(data) {
   
   
   <!-- ACKNOWLEDGEMENTS -->
-  # Acknowledgements <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  # Acknowledgements
   ${data.thanks}
   
   
