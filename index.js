@@ -5,7 +5,7 @@ const fs = require("fs");
 
 function LicenseData(owner, licenseText) {
     this.owner = owner;
-    this.year = new Date().getFullYear;
+    this.year = new Date().getFullYear();
     this.licenseText = licenseText;
 }
 
@@ -120,8 +120,7 @@ function writeToFile(response) {
 function getGithubURL(response) {
     const queryUrl = `https://api.github.com/users/${response.github}/repos?per_page=100`;
     axios.get(queryUrl).then(function (res) {
-        response.github = res.data[0].owner.html_url;
-        return response
+        return response.github = res.data[0].owner.html_url;
     })
 }
 
@@ -132,6 +131,7 @@ function getLicenseData(response) {
     } else {
         license = licenseMitText;
     }
+    // let year = new Date().getFullYear();
     response.license = new LicenseData(response.ownerName, license)
 }
 

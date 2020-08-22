@@ -2,7 +2,7 @@
   <!-- PROJECT TITLE -->
   <br />
   <p align="center">
-    <h1 align="center">ReadMe Generator</h1>
+    <h1 align="center">Update Later</h1>
   </p>
   
   
@@ -42,21 +42,9 @@
   
   Begin license text.
         
-        Copyright function getFullYear() { [native code] } Brendan Leighton
+        Copyright 2020 Brndan Leighton
         
-  
-        Begin license text.
-        
-        Copyright undefined undefined
-
-        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-        End license text.
-    
+  undefined
 
   End license text.
 
@@ -66,19 +54,19 @@
 
   ## Testing <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
   
-  testing
+  
 
   <!-- CONTACT -->
   # Contact <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
   
   * [Email](br3ndan.l8n@gmail.com)
   * [GitHub](br3ndan-l8n)
-  * [LinkedIn](later)
+  * [LinkedIn]()
   
   
   
   <!-- ACKNOWLEDGEMENTS -->
   # Acknowledgements <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
-  nah
+  
   
   
