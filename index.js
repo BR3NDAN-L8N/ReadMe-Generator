@@ -23,6 +23,7 @@ let licenseApacheText = `
         See the License for the specific language governing permissions and
         limitations under the License.
     `;
+    
 let licenseMitText = `
 
         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -32,12 +33,13 @@ let licenseMitText = `
         THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     `;
+
 // array of questions for user
 let questions = [{
         type: "input",
-        message: "File path to save the file? Please include the name of the file. Defaults to 'ReadMe.md' in current folder.",
+        message: "File path to save the file? Please include the name of the file. Defaults to './Output/ReadMe.md' in current folder.",
         name: "filePath",
-        default: "ReadMe.md",
+        default: "./Output/ReadMe.md",
     },
     {
         type: "input",
@@ -47,14 +49,21 @@ let questions = [{
     },
     {
         type: "input",
-        message: "Enter your first and last name or company name.",
-        name: "ownerName"
+        message: "Enter your first and last name or company name to be added to the license. **REQUIRED**",
+        name: "ownerName",
+        validate: function (input) {
+            str = input.toString();
+            if (str.length < 1) {
+                return "You must enter a valid name or the license will be invalid";
+            }
+            return true;
+        }
     },
     {
         type: "input",
         message: "Any instructions for installation?",
         name: "installation",
-        default: "There are no special instructions for installation."
+        default: "There are no special instructions for installing, just clone repo."
     },
     {
         type: "input",
@@ -64,7 +73,7 @@ let questions = [{
     },
     {
         type: "list",
-        message: "Which license would you like this evening? Default is MIT license.",
+        message: "Which license would you like this evening?",
         name: "license",
         choices: [
             'Apache License 2.0',
@@ -74,14 +83,16 @@ let questions = [{
     {
         type: "input",
         message: "Instructions for contributions?",
-        name: "contribution"
+        name: "contribution",
+        default: "Check spelling/grammar and write clean code."
     },
     {
         type: "input",
         message: "Testing instructions?",
-        name: "testing"
+        name: "testing",
+        default: "No tests, just don't break anything."
     },
-    { 
+    {
         type: "input",
         message: "What is your GitHub username? **REQUIRED**",
         name: "github",
@@ -96,17 +107,20 @@ let questions = [{
     {
         type: "input",
         message: "What is your email?",
-        name: "email"
+        name: "email",
+        default: "Update later"
     },
     {
         type: "input",
         message: "Would you like to enter a LinkedIn URL?",
-        name: "linkedIn"
+        name: "linkedIn",
+        default: "Update later"
     },
     {
         type: "input",
         message: "Would you like to enter any acknowledgements?",
-        name: "thanks"
+        name: "thanks",
+        default: "Update later"
     },
 ];
 
@@ -117,13 +131,16 @@ function writeToFile(response) {
     });
 }
 
+// AXIOS THE GITHUB URL
 function getGithubURL(response) {
-    const queryUrl = `https://api.github.com/users/${response.github}/repos?per_page=100`;
+    const queryUrl = `https://api.github.com/users/${response.github}/repos?per_page=1`;
     axios.get(queryUrl).then(function (res) {
-        return response.github = res.data[0].owner.html_url;
+        response.github = res.data[0].owner.html_url;
+        getLicenseData(response);
     })
 }
 
+// COMPILES INFO FOR THE LICENSE
 function getLicenseData(response) {
     let license = '';
     if (response.license === "Apache License 2.0") {
@@ -133,21 +150,17 @@ function getLicenseData(response) {
     }
     // let year = new Date().getFullYear();
     response.license = new LicenseData(response.ownerName, license)
+    
+    writeToFile(response);
 }
 
 // function to initialize program
 function init() {
     inquirer.prompt(questions)
         .then(response => {
-            getGithubURL(response);
-            getLicenseData(response);
-            writeToFile(response);
+            getGithubURL(response)
         });
 }
+
 // function call to initialize program
 init();
-
-// inquirer.prompt(questions)
-//     .then(answers => {
-//         // ... Do things here ...
-//     });
