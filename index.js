@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const axios = require("axios");
-const generateMarkdown = require("./generateMarkdown.js");
 const fs = require("fs");
+const generateMarkdown = require("./generateMarkdown.js");
 
 function LicenseData(owner, licenseText) {
     this.owner = owner;
@@ -23,6 +23,9 @@ let licenseApacheText = `
         limitations under the License.
 
     `;
+let licenseApacheBadge = '[![License][apache]][apache-url]';
+let licenseApacheBadgeLink = '[apache]: https://img.shields.io/badge/License-Apache%20License%202.0-blue';
+let licenseApacheBadgeUrl = '[apache-url]: http://www.apache.org/licenses/LICENSE-2.0';
 
 let licenseMitText = `
         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -32,6 +35,9 @@ let licenseMitText = `
         THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     `;
+let licenseMitBadge = '[![License][mit]][mit-url]';
+let licenseMitBadgeLink = '[mit]: https://img.shields.io/badge/License-The%20MIT%20License-blue';
+let licenseMitBadgeUrl = '[mit-url]: https://opensource.org/licenses/MIT';
 
 // array of questions for user
 let questions = [{
@@ -83,7 +89,7 @@ let questions = [{
         type: "input",
         message: "Instructions for contributions? Default: ",
         name: "contribution",
-        default: "Check spelling/grammar and write clean code."
+        default: "After passing tests, check spelling/grammar and write clean code."
     },
     {
         type: "input",
@@ -93,12 +99,12 @@ let questions = [{
     },
     {
         type: "input",
-        message: "What is your GitHub username? **REQUIRED**",
+        message: "What is your GitHub username? You must enter a valid Github username or the program won't run **REQUIRED**",
         name: "github",
         validate: function (input) {
             str = input.toString();
             if (str.length < 3) {
-                return "You must enter a valid Github username or the program won't run";
+                return "Your username is too short.";
             }
             return true;
         }
@@ -135,15 +141,25 @@ function getGithubURL(response) {
 }
 
 // COMPILES INFO FOR THE LICENSE
-function getLicenseData(response) { 
+function getLicenseData(response) {
     let license = '';
+    let badge = '';
     if (response.license === "Apache License 2.0") {
         license = licenseApacheText;
+        badge = licenseApacheBadge;
+        licenseLink = licenseApacheBadgeLink;
+        badgeUrl = licenseApacheBadgeUrl;
     } else {
         license = licenseMitText;
+        badge = licenseMitBadge;
+        licenseLink = licenseMitBadgeLink;
+        badgeUrl = licenseMitBadgeUrl;
     }
-    response.license = new LicenseData(response.ownerName, license)
-    
+    response.license = new LicenseData(response.ownerName, license);
+    response.badge = badge;
+    response.licenseLink = licenseLink;
+    response.badgeUrl = badgeUrl;
+
     writeToFile(response);
 }
 

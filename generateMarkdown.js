@@ -3,9 +3,10 @@ function generateMarkdown(data) {
   return `
   <!-- PROJECT TITLE -->
   <br />
-  <p align="center">
-    <h1 align="center">${data.projectName}</h1>
-  </p>
+
+  <h1 align="center">${data.projectName}</h1>
+
+  <span align="center">${data.badge}</span>
   
   
   
@@ -15,10 +16,11 @@ function generateMarkdown(data) {
   * [About the Project](#about-the-project)
       * [Live Link](#finished-project)
       * [Project Demo](#project-demo)
-      * [Usage](#usage)
-      * [License](#license)
-      * [Contribution Instructions](#contributions)
-      * [Test Instructions](#testing)
+      * [Built With](#built-with)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contribution Instructions](#contributions)
+  * [Test Instructions](#testing)
   * [Contact / Questions](#contact)
   * [Acknowledgements](#acknowledgements)
   
@@ -36,11 +38,15 @@ function generateMarkdown(data) {
   
   ${data.demoMedia}
 
-  ## Usage
+  ## Built With
+
+  ${data.technologies}
+
+  # Usage
 
   ${data.usage}
 
-  ## License
+  # License
   
   Begin license text.
         
@@ -49,11 +55,11 @@ function generateMarkdown(data) {
 
   End license text.
 
-  ## Contributions
+  # Contributions
 
   ${data.contribution}
 
-  ## Testing
+  # Testing
   
   ${data.testing}
 
@@ -71,6 +77,9 @@ function generateMarkdown(data) {
   ${data.thanks}
   
   
+<!-- MARKDOWN LINKS & IMAGES -->
+${data.licenseLink}
+${data.badgeUrl}
 `;
 }
 
