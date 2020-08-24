@@ -1,9 +1,10 @@
 
   <!-- PROJECT TITLE -->
   <br />
-  <p align="center">
-    <h1 align="center">ReadMe Generator</h1>
-  </p>
+
+  <h1 align="center">ReadMe Generator</h1>
+
+  <span align="center">[![License][mit]][mit-url]</span>
   
   
   
@@ -13,11 +14,12 @@
   * [About the Project](#about-the-project)
       * [Live Link](#finished-project)
       * [Project Demo](#project-demo)
-      * [Usage](#usage)
-      * [License](#license)
-      * [Contribution Instructions](#contributions)
-      * [Test Instructions](#testing)
-  * [Contact / Questions](#contact)
+      * [Built With](#built-with)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contribution Instructions](#contributions)
+  * [Test Instructions](#testing)
+  * [Contact / Questions](#contact-or-questions)
   * [Acknowledgements](#acknowledgements)
   
   
@@ -25,27 +27,31 @@
   <!-- ABOUT THE PROJECT -->
   # About The Project
   
-  ## Finished Project <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  ## Finished Project
   
   <!-- Add deployed link when available -->
-  [Deployed Project](http://www.example.com) 
+  You're looking at it! It isn't deployed anywhere, just fork it.
   
-  ## Project Demo <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  ## Project Demo
   
-  undefined
+  https://www.youtube.com/watch?v=60zCvlJ45mw
 
-  ## Usage <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  ## Built With
 
-  Update Later
+  NPM:
+  * Inquirer
+  * Axios
 
-  ## License <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  # Usage
+
+  To create a well written ReadMe with ease. 
+
+  # License
   
   Begin license text.
         
         Copyright 2020 Brendan Leighton
-        
   
-
         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
         The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -56,25 +62,28 @@
 
   End license text.
 
-  ## Contributions <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  # Contributions
 
-  Write clean code
+  After passing tests, check spelling/grammar and write clean code.
 
-  ## Testing <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  # Testing
   
-  None
+  No tests, just don't break anything.
 
   <!-- CONTACT -->
-  # Contact <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
+  # Contact or Questions
   
-  * [Email](undefined)
+  * [Email](br3ndan.l8n@gmail.com)
   * [GitHub](https://github.com/BR3NDAN-L8N)
-  * [LinkedIn](undefined)
+  * [LinkedIn](https://www.linkedin.com/in/brendan-leighton/)
   
   
   
   <!-- ACKNOWLEDGEMENTS -->
-  # Acknowledgements <span style="font-size:16px; padding-left:20px">[^ Top ^](#table-of-contents)</span>
-  undefined
+  # Acknowledgements
+  NPM, Inquirer, Axios, Google
   
   
+<!-- MARKDOWN LINKS & IMAGES -->
+[mit]: https://img.shields.io/badge/License-The%20MIT%20License-blue
+[mit-url]: https://opensource.org/licenses/MIT

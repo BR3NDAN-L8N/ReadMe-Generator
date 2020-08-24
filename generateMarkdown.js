@@ -21,7 +21,7 @@ function generateMarkdown(data) {
   * [License](#license)
   * [Contribution Instructions](#contributions)
   * [Test Instructions](#testing)
-  * [Contact / Questions](#contact)
+  * [Contact / Questions](#contact-or-questions)
   * [Acknowledgements](#acknowledgements)
   
   
@@ -64,7 +64,7 @@ function generateMarkdown(data) {
   ${data.testing}
 
   <!-- CONTACT -->
-  # Contact
+  # Contact or Questions
   
   * [Email](${data.email})
   * [GitHub](${data.github})
