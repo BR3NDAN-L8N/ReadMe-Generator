@@ -21,7 +21,7 @@ let licenseApacheText = `
         WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
         See the License for the specific language governing permissions and
         limitations under the License.
-        
+
     `;
 
 let licenseMitText = `
@@ -42,25 +42,13 @@ let questions = [{
     },
     {
         type: "input",
-        message: "What is the project's name?",
+        message: "What is the project's name? Default: ",
         name: "projectName",
         default: "Update Later"
     },
     {
         type: "input",
-        message: "Enter your first and last name or company name to be added to the license. **REQUIRED**",
-        name: "ownerName",
-        validate: function (input) {
-            str = input.toString();
-            if (str.length < 1) {
-                return "You must enter a valid name or the license will be invalid";
-            }
-            return true;
-        }
-    },
-    {
-        type: "input",
-        message: "Any instructions for installation?",
+        message: "Any instructions for installation? Default: ",
         name: "installation",
         default: "There are no special instructions for installing, just clone repo."
     },
@@ -81,13 +69,25 @@ let questions = [{
     },
     {
         type: "input",
-        message: "Instructions for contributions?",
+        message: "Enter your first and last name or company name to be added to the license. **REQUIRED**",
+        name: "ownerName",
+        validate: function (input) {
+            str = input.toString();
+            if (str.length < 1) {
+                return "You must enter a valid name or the license will be invalid";
+            }
+            return true;
+        }
+    },
+    {
+        type: "input",
+        message: "Instructions for contributions? Default: ",
         name: "contribution",
         default: "Check spelling/grammar and write clean code."
     },
     {
         type: "input",
-        message: "Testing instructions?",
+        message: "Testing instructions? Default: ",
         name: "testing",
         default: "No tests, just don't break anything."
     },
@@ -97,7 +97,7 @@ let questions = [{
         name: "github",
         validate: function (input) {
             str = input.toString();
-            if (str.length < 1) {
+            if (str.length < 3) {
                 return "You must enter a valid Github username or the program won't run";
             }
             return true;
@@ -105,30 +105,25 @@ let questions = [{
     },
     {
         type: "input",
-        message: "What is your email?",
+        message: "What is your email? Default: ",
         name: "email",
         default: "Update later"
     },
     {
         type: "input",
-        message: "Would you like to enter a LinkedIn URL?",
+        message: "Would you like to enter a LinkedIn URL? Default: ",
         name: "linkedIn",
         default: "Update later"
     },
     {
         type: "input",
-        message: "Would you like to enter any acknowledgements?",
+        message: "Would you like to enter any acknowledgements? Default: ",
         name: "thanks",
         default: "Update later"
     },
 ];
 
-// function to write README file
-function writeToFile(response) {
-    fs.writeFile(response.filePath, generateMarkdown(response), function (err) {
-        return err ? console.log(err) : console.log("You should be all set!");
-    });
-}
+
 
 // AXIOS THE GITHUB URL
 function getGithubURL(response) {
@@ -140,17 +135,23 @@ function getGithubURL(response) {
 }
 
 // COMPILES INFO FOR THE LICENSE
-function getLicenseData(response) {
+function getLicenseData(response) { 
     let license = '';
     if (response.license === "Apache License 2.0") {
         license = licenseApacheText;
     } else {
         license = licenseMitText;
     }
-    // let year = new Date().getFullYear();
     response.license = new LicenseData(response.ownerName, license)
     
     writeToFile(response);
+}
+
+// function to write README file
+function writeToFile(response) {
+    fs.writeFile(response.filePath, generateMarkdown(response), function (err) {
+        return err ? console.log(err) : console.log("You should be all set!");
+    });
 }
 
 // function to initialize program
