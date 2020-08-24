@@ -37,6 +37,7 @@ function generateMarkdown(data) {
   ## Project Demo
   
   ${data.demoMedia}
+  ![Screenshot](./Assets/screenshot.png)
 
   ## Built With
 
