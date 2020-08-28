@@ -35,7 +35,6 @@
   ## Project Demo
   
   [Watch Demo On YouTube](https://www.youtube.com/watch?v=60zCvlJ45mw)
-  ![Screenshot](./Assets/screenshot.png)
 
   ## Built With
 
